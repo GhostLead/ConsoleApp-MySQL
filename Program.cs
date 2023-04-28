@@ -52,15 +52,15 @@ MySqlDataReader eredmenyOlvaso = SQlparancs.ExecuteReader();
 
 while (eredmenyOlvaso.Read())
 {
-    string s = "";
-    s += eredmenyOlvaso.GetString("Cikkszám") + " | ";
-    s += eredmenyOlvaso.GetString("Kategória") + " | ";
-    s += eredmenyOlvaso.GetString("Gyártó") + " | ";
-    s += eredmenyOlvaso.GetString("Név") + " | ";
-    s += eredmenyOlvaso.GetString("Ár") + " | ";
-    s += eredmenyOlvaso.GetString("Garidő") + " | ";
-    s += eredmenyOlvaso.GetString("Készlet") + " | ";
-    s += eredmenyOlvaso.GetString("Súly") + " | ";
+    string s = "                                    |";
+    s += String.Format("{0,9}", eredmenyOlvaso.GetString("Cikkszám") + " | ");
+    s += eredmenyOlvaso.GetString("Kategória").PadRight(22) + " | ";
+    s += eredmenyOlvaso.GetString("Gyártó").PadRight(15) + " | ";
+    s += eredmenyOlvaso.GetString("Név").PadRight(74) + " | ";
+    s += eredmenyOlvaso.GetString("Ár").PadRight(6) + "Ft" + " | ";
+    s += eredmenyOlvaso.GetString("Garidő").PadRight(2) + " | ";
+    s += eredmenyOlvaso.GetString("Készlet").PadRight(12) + " | ";
+    s += eredmenyOlvaso.GetString("Súly").PadRight(5) + " | ";
     Console.WriteLine(s);
 }
 
